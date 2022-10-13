@@ -2,6 +2,16 @@ from typing import List
 
 
 def integral_view(image: List[List]) -> List[List]:
+    '''
+    Функция получает матрицу изображения, возвращает интегральное представление изображения
+    Args:
+        image (List[List]): param
+
+    Returns:
+        integral_image (List[List]): интегральное отображение полученного изображения
+    Raises:
+        TypeError: если передадим не двумерный массив
+    '''
     n = len(image)
     m = len(image[0])
     integral_image = [[0 for j in range(m + 1)] for i in range(n + 1)]
@@ -16,6 +26,22 @@ def integral_view(image: List[List]) -> List[List]:
 
 
 def rect_sum(image: List[List], x1: int, y1: int, x2: int, y2: int) -> int:
+    '''
+    Функция получает на вход матрицу, а также координаты (x1, y1) - верхнего левого угла прямоугольника и (x2, y2) -
+    нижнего правого угла прямоугольника, возвращает сумму элементов внутри этого прямоугольника
+    Args:
+        image (List[List]): матрица
+        x1 (int): координата верхнего левого угла
+        y1 (int): координата верхнего левого угла
+        x2 (int): координата нижнего правого угла
+        y2 (int): координата нижнего правого угла
+
+    Returns:
+         sum (int): сумма элементов в прямоугольнике
+    Raises:
+        TypeError: передали некорректное значение (можно лишь: List[List] и int)
+        IndexError: длина вложенных списков различна, а должна быть одинакова
+    '''
     if x1 < 0 or x2 <0 or y1 < 0 or y2 < 0:
         sum = "Координаты должны быть введены как положительные числа"
     else:
